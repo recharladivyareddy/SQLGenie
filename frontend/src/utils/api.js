@@ -3,8 +3,14 @@
 // Simulate API delay
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-export const sendMessage = async (question, schema) => {
+export const sendMessage = async (q, sch) => {
   try {
+    
+    const [question, ...rest] = q.split(' [qE] ');  // Split by the delimiter [qE]
+    const schema = rest.join(' [qE] ').trim(); 
+    console.log('Question:', question);
+
+    console.log('Schema:', schema);
     const response = await fetch(`http://localhost:5000/api/generate_sql`, {
       method: 'POST',
       headers: {

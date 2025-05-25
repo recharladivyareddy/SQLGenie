@@ -5,7 +5,7 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # 👈 This enables CORS for all routes
+CORS(app)  
 
 
 # Load the model and tokenizer
@@ -38,7 +38,7 @@ def generate_sql():
         model_inputs = tokenizer(input_text, return_tensors="pt")
         
         # Generate the SQL query
-        outputs = model.generate(**model_inputs, max_length=512)
+        outputs = model.generate(**model_inputs, max_length=768)
         output_text = tokenizer.batch_decode(outputs, skip_special_tokens=True)
 
         # Return the generated SQL query
