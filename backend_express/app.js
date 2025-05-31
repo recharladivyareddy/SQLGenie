@@ -9,7 +9,6 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import queryString from 'query-string';
 import User from './models/User.js';
-import postRoutes from './routes/postRoutes.js';
 const app = express();
 const PORT = 5001;
 
@@ -201,8 +200,6 @@ app.post('/login', async (req, res) => {
   }
 });
 
-
-app.use('/api/posts', postRoutes);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
