@@ -16,21 +16,19 @@ html, body, #root {
 }
 
 .navbar {
-  height: 60px; /* Adjust as needed */
-  /* background-color: #f9f9f9; */
+  height: 60px;
   padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
-  /* box-shadow: 0 1px 4px rgba(0,0,0,0.1); */
   z-index: 10;
 }
 
 .chat-app {
   flex: 1;
   display: flex;
-  height: calc(100vh - 60px); /* Subtract navbar height */
+  height: calc(100vh - 60px); 
   overflow: hidden;
 }
 

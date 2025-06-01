@@ -13,6 +13,14 @@ function ChatApp() {
     handleNewChat();
   }, []);
 
+  const handleDeleteChat = (chatId) => {
+    setChats(prevChats => prevChats.filter(chat => chat.id !== chatId));
+
+    if (activeChat?.id === chatId) {
+      setActiveChat(null); // Optionally clear if deleted chat was active
+    }
+  };
+
   const handleNewChat = async () => {
     try {
       const newChat = await createNewChat();
@@ -24,7 +32,7 @@ function ChatApp() {
   };
 
   const handleSendMessage = async ({ question, schema }) => {
-    const content = `Q: ${question}\nS: ${schema}`;
+    const content = `Question: ${question}\nSchema: ${schema}`;
 
     // Create user message
     const userMessage = {
@@ -38,7 +46,7 @@ function ChatApp() {
     if (!activeChat) {
       const newChat = await createNewChat();
       newChat.messages = [userMessage];
-      newChat.title = content.slice(0, 30) + (content.length > 30 ? '...' : '');
+      newChat.title = content.slice(10, 60) + (content.length > 30 ? '...' : '');
       
       setChats(prevChats => [newChat, ...prevChats]);
       setActiveChat(newChat);
@@ -52,7 +60,7 @@ function ChatApp() {
       
       // If this is the first message, set the chat title
       if (activeChat.messages.length === 0) {
-        updatedChat.title = content.slice(0, 30) + (content.length > 30 ? '...' : '');
+        updatedChat.title = content.slice(10, 60) + (content.length > 30 ? '...' : '');
       }
       
       setActiveChat(updatedChat);
@@ -72,6 +80,9 @@ function ChatApp() {
         ...chatToUpdate,
         messages: [...chatToUpdate.messages, userMessage, assistantMessage],
         updatedAt: new Date(),
+        title: chatToUpdate.title === 'New conversation'
+          ? content.slice(10, 60) + (content.length > 30 ? '...' : '')
+          : chatToUpdate.title,
       };
       
       setActiveChat(updatedChat);
@@ -96,6 +107,7 @@ function ChatApp() {
         activeChat={activeChat} 
         onChatSelect={handleChatSelect} 
         onNewChat={handleNewChat} 
+        onDeleteChat={handleDeleteChat}
       />
       <ChatContainer 
         activeChat={activeChat} 

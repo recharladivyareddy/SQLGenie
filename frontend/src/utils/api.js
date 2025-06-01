@@ -1,13 +1,9 @@
-// Simulated API for chat functionality
+// API for chat functionality
 
-// Simulate API delay
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 export const sendMessage = async ({ question, schema }, chatId) => {
   try {
-    
-    // const [question, ...rest] = q.split(' [qE] ');  // Split by the delimiter [qE]
-    // const schema = rest.join(' [qE] ').trim(); 
     console.log('Question:', question);
 
     console.log('Schema:', schema);
@@ -39,7 +35,6 @@ export const sendMessage = async ({ question, schema }, chatId) => {
 
 
 export const createNewChat = async () => {
-  // Simulate network request
   await delay(500);
   
   // Create a new chat

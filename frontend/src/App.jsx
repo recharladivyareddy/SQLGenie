@@ -11,7 +11,7 @@ import Navbar from './components/Navbar.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <UserProvider> 
-        <div className="app-wrapper">
+    <div className="app-wrapper">
 
     <BrowserRouter>
       <Navbar/>

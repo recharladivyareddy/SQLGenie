@@ -1,11 +1,11 @@
-import React from 'react';
-import { PlusCircle, MessageSquare, Settings, LogOut } from 'lucide-react';
+import { PlusCircle, MessageSquare } from 'lucide-react';
 
 const ChatSidebar = ({
   chats,
   activeChat,
   onChatSelect,
   onNewChat,
+  onDeleteChat,
 }) => {
   return (
     <div className="flex flex-col bg-gray-900 text-white w-64 p-2">
@@ -20,25 +20,31 @@ const ChatSidebar = ({
       <div className="flex-1 overflow-auto">
         <div className="space-y-1 mt-2">
           {chats.map((chat) => (
+          <div
+            key={chat.id}
+            className={`flex items-center justify-between p-2 rounded-md transition-colors ${
+              activeChat?.id === chat.id ? 'bg-gray-700' : 'hover:bg-gray-700'
+            }`}
+          >
             <button
-              key={chat.id}
               onClick={() => onChatSelect(chat)}
-              className={`flex items-center gap-2 p-3 w-full text-left rounded-md hover:bg-gray-700 transition-colors ${
-                activeChat?.id === chat.id ? 'bg-gray-700' : ''
-              }`}
+              className="flex items-center gap-2 text-left w-full truncate"
             >
               <MessageSquare size={16} />
               <span className="truncate">{chat.title}</span>
             </button>
-          ))}
-        </div>
-      </div>
+            <button
+              onClick={() => onDeleteChat(chat.id)}
+              className="ml-2 text-gray-400 hover:text-red-500"
+              title="Delete chat"
+            >
+              ✕
+            </button>
+          </div>
+        ))}
 
-      <div className="border-t border-gray-700 pt-2 space-y-1">
-        <button className="flex items-center gap-2 p-3 w-full text-left rounded-md hover:bg-gray-700 transition-colors">
-          <Settings size={16} />
-          <span>Settings</span>
-        </button>
+                  
+        </div>
       </div>
     </div>
   );

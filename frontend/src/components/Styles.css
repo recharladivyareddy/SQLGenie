@@ -93,7 +93,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 24px;
-  background-color: rgb(17 24 39);;
+  background-color: rgb(17 24 39);
   color: white;
 }
 
@@ -130,7 +130,6 @@
 .username {
   padding: 5px 10px;
   font-weight: bold;
-  text-align: center;
   border-bottom: 1px solid #ddd;
   margin-bottom: 5px;
 }
@@ -138,20 +137,21 @@
 .logout-button {
   width: 100%;
   padding: 5px 10px;
-  background-color: #e74c3c;
+  /* background-color: #373333; */
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
   cursor: pointer;
   border-radius: 3px;
 }
 
 .logout-button:hover {
-  background-color: #c0392b;
+  background-color: rgb(191, 197, 209);
+  opacity: 1;
 }
 
 .login-button {
-  background-color: #3498db;
-  color: white;
+  background-color: rgb(17 24 39);
+  color: rgb(17 24 39);
   padding: 6px 12px;
   border: none;
   border-radius: 3px;

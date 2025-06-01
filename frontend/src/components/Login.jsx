@@ -49,7 +49,7 @@ const Login = () => {
 
   return (
     <div className="auth-container">
-      <h2>Login</h2>
+      <h2 className="text-black">Login</h2><br></br>
       {error && <div className="error">{error}</div>}
       {success && <div className="success">{success}</div>}
       <form onSubmit={handleSubmit}>
