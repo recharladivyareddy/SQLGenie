@@ -8,7 +8,7 @@ const ChatSidebar = ({
   onNewChat,
 }) => {
   return (
-    <div className="flex flex-col h-screen bg-gray-900 text-white w-64 p-2">
+    <div className="flex flex-col bg-gray-900 text-white w-64 p-2">
       <button
         onClick={onNewChat}
         className="flex items-center gap-2 p-3 rounded-md hover:bg-gray-700 transition-colors border border-gray-700 mb-2"
@@ -38,10 +38,6 @@ const ChatSidebar = ({
         <button className="flex items-center gap-2 p-3 w-full text-left rounded-md hover:bg-gray-700 transition-colors">
           <Settings size={16} />
           <span>Settings</span>
-        </button>
-        <button className="flex items-center gap-2 p-3 w-full text-left rounded-md hover:bg-gray-700 transition-colors">
-          <LogOut size={16} />
-          <span>Log out</span>
         </button>
       </div>
     </div>

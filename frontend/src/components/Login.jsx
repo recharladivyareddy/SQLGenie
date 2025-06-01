@@ -22,7 +22,7 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5001/login', { name, password });
+      const response = await axios.post('http://localhost:5000/login', { name, password });
       setSuccess('Login successful!');
       setError('');
       setUser(response.data.user);  // Set user data in context and localStorage
@@ -35,7 +35,7 @@ const Login = () => {
 
   const handleOAuthLogin = async () => {
     try {
-      const { data } = await axios.get('http://localhost:5001/auth/url');
+      const { data } = await axios.get('http://localhost:5000/auth/url');
       window.location.href = data.url; 
       console.log(data.url);
     } catch (err) {

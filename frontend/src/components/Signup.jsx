@@ -135,7 +135,7 @@ const Signup = ({ setUser }) => {
     const formData = { name, email, password };
 
     try {
-      const response = await axios.post('http://localhost:5001/signup', formData);
+      const response = await axios.post('http://localhost:5000/signup', formData);
       setSuccess('Signup successful! You can now log in.');
       setError('');
     } catch (err) {
@@ -146,7 +146,7 @@ const Signup = ({ setUser }) => {
 
   const handleOAuthLogin = async () => {
     try {
-      const { data } = await axios.get('http://localhost:5001/auth/url');
+      const { data } = await axios.get('http://localhost:5000/auth/url');
       window.location.href = data.url; 
     } catch (err) {
       setError('Failed to initiate OAuth login');
