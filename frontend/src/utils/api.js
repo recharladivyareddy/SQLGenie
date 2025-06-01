@@ -3,11 +3,11 @@
 // Simulate API delay
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-export const sendMessage = async (q, sch) => {
+export const sendMessage = async ({ question, schema }, chatId) => {
   try {
     
-    const [question, ...rest] = q.split(' [qE] ');  // Split by the delimiter [qE]
-    const schema = rest.join(' [qE] ').trim(); 
+    // const [question, ...rest] = q.split(' [qE] ');  // Split by the delimiter [qE]
+    // const schema = rest.join(' [qE] ').trim(); 
     console.log('Question:', question);
 
     console.log('Schema:', schema);

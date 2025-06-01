@@ -23,8 +23,8 @@ function ChatApp() {
     }
   };
 
-  const handleSendMessage = async (content) => {
-    if (!content.trim()) return;
+  const handleSendMessage = async ({ question, schema }) => {
+    const content = `Q: ${question}\nS: ${schema}`;
 
     // Create user message
     const userMessage = {
@@ -64,7 +64,7 @@ function ChatApp() {
     // Get response from API
     setIsLoading(true);
     try {
-      const assistantMessage = await sendMessage(content, activeChat?.id);
+      const assistantMessage = await sendMessage({ question, schema }, activeChat?.id);
       
       // Update chat with assistant response
       const chatToUpdate = activeChat || chats[0];
@@ -90,7 +90,7 @@ function ChatApp() {
   };
 
   return (
-    <div className="flex h-screen bg-white">
+    <div className="chat-app">
       <ChatSidebar 
         chats={chats} 
         activeChat={activeChat} 

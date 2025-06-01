@@ -7,10 +7,14 @@ import Login from './components/Login.jsx';
 import Signup from './components/Signup.jsx';
 import ChatApp from './components/ChatApp.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
+import Navbar from './components/Navbar.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <UserProvider> {/* Wrap the app with UserProvider */}
+  <UserProvider> 
+        <div className="app-wrapper">
+
     <BrowserRouter>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
@@ -24,6 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         />
       </Routes>
     </BrowserRouter>
+    </div>
   </UserProvider>
 );
 

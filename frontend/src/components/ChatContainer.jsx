@@ -18,7 +18,7 @@ const ChatContainer = ({
   }
 
   return (
-    <div className="flex-1 flex flex-col h-screen overflow-hidden">
+    <div className="flex-1 flex flex-col overflow-hidden">
       <div className="flex-1 overflow-y-auto">
         {activeChat.messages.length === 0 ? (
           <div className="flex items-center justify-center h-full">
